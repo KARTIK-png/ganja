@@ -25,7 +25,7 @@ api = Api(app)
 
 class HelloWorld(Resource):
     def get(self, thumb, index, middle, ring, pinky, pitch, roll):
-        x_test = [thumb, index, middle, ring, pinky, pitch, roll]
+        x_test = [[thumb, index, middle, ring, pinky, pitch, roll]]
         x_test = np.array(x_test)
         x_test = sc.transform(x_test)
         y_pred = classifier.predict(x_test)
