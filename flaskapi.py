@@ -29,7 +29,7 @@ class HelloWorld(Resource):
         x_test = np.array(x_test)
         x_test = sc.transform(x_test)
         y_pred = classifier.predict(x_test)
-        return jsonify({"class": y_pred[0]})
+        return {"class": y_pred[0]}
 
 
 api.add_resource(HelloWorld, "/hello/<int:thumb>/<int:index>/<int:middle>/<int:ring>/<int:pinky>/<int:pitch>/<int:roll>")
