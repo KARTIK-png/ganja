@@ -17,7 +17,7 @@ x = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 sc = StandardScaler()
 x = sc.fit_transform(x)
-classifier = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
+classifier = KNeighborsClassifier(n_neighbors=15, metric='minkowski', p=2)
 classifier.fit(x, y)
 
 app = Flask(__name__)
@@ -29,7 +29,7 @@ class HelloWorld(Resource):
         x_test = np.array(x_test)
         x_test = sc.transform(x_test)
         y_pred = classifier.predict(x_test)
-        return {"class": y_pred[0]}
+        return jsonify({"class": y_pred[0]})
 
 
 api.add_resource(HelloWorld, "/hello/<int:thumb>/<int:index>/<int:middle>/<int:ring>/<int:pinky>/<int:pitch>/<int:roll>")
