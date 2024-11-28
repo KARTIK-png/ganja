@@ -31,7 +31,7 @@ class HelloWorld(Resource):
         return {"class": y_pred[0]}
 
 
-api.add_resource(HelloWorld, "/hello/<int: thumb>/<int: index>/<int: middle>/<int: ring>/<int: pinky>/<int: pitch>/<int: roll>")
+api.add_resource(HelloWorld, "/hello/<int:thumb>/<int:index>/<int:middle>/<int:ring>/<int:pinky>/<int:pitch>/<int:roll>")
 
 if __name__ == "__main__":
     app.run(debug=False)
